@@ -24,3 +24,5 @@ generator:
       - "!/resources/"
       - "!/services/"
       - "!/widgets/"
+dev:
+  devtoolTag: local

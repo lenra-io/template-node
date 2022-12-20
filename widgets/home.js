@@ -25,7 +25,19 @@ module.exports = (data, counter) => {
                     "user": "global"
                 },
                 "props": { text: "The common counter" }
-            }
+            },
+            {
+                "type": "widget",
+                "name": "button",
+                "coll": "counter",
+                "query": {
+                    "user": {
+                        "$in": ["global", "@me"]
+                    }
+                },
+                "props": { text: "The common counter" }
+            },
+
         ]
     }
 }

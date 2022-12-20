@@ -17,6 +17,14 @@ module.exports = {
     },
     executeQuery(api, coll, query) {
         return axios.post(`${api.url}/app/colls/${coll}/docs/find`, query, options(api));
+    },
+    startTransaction(api) {
+        return axios.post(`${api.url}/app/transaction`, query, options(api));
+
+    },
+    transactionCreate(api, id, coll, doc) {
+        return axios.post(`${api.url}/app/transaction/${id}/colls/${coll}/docs`, query, options(api));
+
     }
 }
 
