@@ -19,12 +19,16 @@ module.exports = {
         return axios.post(`${api.url}/app/colls/${coll}/docs/find`, query, options(api));
     },
     startTransaction(api) {
-        return axios.post(`${api.url}/app/transaction`, query, options(api));
-
+        return axios.post(`${api.url}/app/transaction`, {}, options(api));
     },
     transactionCreate(api, id, coll, doc) {
-        return axios.post(`${api.url}/app/transaction/${id}/colls/${coll}/docs`, query, options(api));
-
+        return axios.post(`${api.url}/app/transaction/${id}/colls/${coll}/docs`, doc, options(api));
+    },
+    transactionUpdate(api, id, coll, doc) {
+        return axios.put(`${api.url}/app/transaction/${id}/colls/${coll}/docs/${doc._id}`, doc, options(api));
+    },
+    transactionCommit(api, id) {
+        return axios.post(`${api.url}/app/transaction/${id}/commit`, {}, options(api));
     }
 }
 
